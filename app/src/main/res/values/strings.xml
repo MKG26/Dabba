@@ -5,4 +5,9 @@
     <string name="cardContent2">for your hunger cravings</string>
     <string name="getStarted">Get started with Dabba</string>
     <string name="btnContinue">Continue</string>
+    <string name="phoneVerification">Phone Verification</string>
+    <string name="otp1">Enter the %d-digit code sent to your</string>
+    <string name="otp2">phone number</string>
+    <string name="resentCode">Resend Code</string>
+    <string name="nextbtn">Next</string>
 </resources>
