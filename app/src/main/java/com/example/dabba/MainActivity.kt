@@ -26,6 +26,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.dabba.presentation.sign_in.GoogleAuthUiClient
 import com.example.dabba.presentation.sign_in.SignInScreen
 import com.example.dabba.presentation.sign_in.SignInViewModel
+import com.example.dabba.ui.Login
 import com.example.dabba.ui.theme.DabbaTheme
 import com.example.firstpage.ui.theme.firstPage
 import com.google.android.gms.auth.api.identity.Identity
@@ -99,7 +100,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             }
 
-                            SignInScreen(
+                            Login(
                                 state = state,
                                 onSignInClick = {
                                     lifecycleScope.launch {
