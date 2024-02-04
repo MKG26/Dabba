@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Dabba</string>
     <string name="web_client_id">166994467087-3iump73epfse08jrtgeafeegoo4pdlua.apps.googleusercontent.com</string>
+    <string name="cardContent1">One stop destination</string>
+    <string name="cardContent2">for your hunger cravings</string>
+    <string name="getStarted">Get started with Dabba</string>
+    <string name="btnContinue">Continue</string>
 </resources>

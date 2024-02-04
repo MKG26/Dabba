@@ -27,6 +27,7 @@ import com.example.dabba.presentation.sign_in.GoogleAuthUiClient
 import com.example.dabba.presentation.sign_in.SignInScreen
 import com.example.dabba.presentation.sign_in.SignInViewModel
 import com.example.dabba.ui.theme.DabbaTheme
+import com.example.firstpage.ui.theme.firstPage
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
 
@@ -48,8 +49,26 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
+
+
                     val navController = rememberNavController()
-                    NavHost(navController =  navController, startDestination = "sign_in"){
+
+
+
+
+                    NavHost(navController =  navController, startDestination = "sec"){
+
+                        composable(route = "sec") {
+
+                            firstPage(
+                                onNextButtonClicked = {
+                                    navController.navigate("sign_in")
+                                }
+                            )
+
+                        }
+
                         composable("sign_in"){
                             val viewModel = viewModel<SignInViewModel>()
                             val state by viewModel.state.collectAsStateWithLifecycle()
@@ -83,18 +102,18 @@ class MainActivity : ComponentActivity() {
                             SignInScreen(
                                 state = state,
                                 onSignInClick = {
-                                     lifecycleScope.launch {
-                                         val signInIntentSender = googleAuthUiClient.signIn()
-                                         launcher.launch(
-                                             IntentSenderRequest.Builder(
-                                                 signInIntentSender ?: return@launch
-                                             ).build()
+                                    lifecycleScope.launch {
+                                        val signInIntentSender = googleAuthUiClient.signIn()
+                                        launcher.launch(
+                                            IntentSenderRequest.Builder(
+                                                signInIntentSender ?: return@launch
+                                            ).build()
 
-                                         )
-                                     }
+                                        )
+                                    }
                                 }
                             )
-                                
+
 
                         }
                     }
@@ -103,4 +122,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
