@@ -26,11 +26,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.twotone.ArrowForward
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -42,6 +44,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -71,6 +77,10 @@ import com.example.dabba.ui.theme.poppinsFamily
 fun Login(state: SignInState,
           onSignInClick: () -> Unit,
           modifier: Modifier = Modifier) {
+
+    var amountInput by remember {
+        mutableStateOf("")
+    }
 
     val context = LocalContext.current
     LaunchedEffect(key1 = state.signInError){
@@ -284,31 +294,17 @@ fun Login(state: SignInState,
                 )
                 .requiredWidth(width = 337.dp)
                 .requiredHeight(height = 52.dp)
-        ) {
-            Text(
-                text = "+91",
-                color = Color.Black,
-                lineHeight = 5.78.em,
-                style = TextStyle(
-                    fontSize = 20.sp),
-                modifier = Modifier
-                    .align(alignment = Alignment.TopStart)
-                    .offset(
-                        x = 8.42095947265625.dp,
-                        y = 15.dp
-                    )
-                    .requiredWidth(width = 34.dp))
 
-            Box(
-                modifier = Modifier
-                    .requiredWidth(width = 337.dp)
-                    .requiredHeight(height = 52.dp)
-                    .clip(shape = RoundedCornerShape(12.dp))
-                    .background(color = Color(0xffe3eaf2).copy(alpha = 0.31f))
-                    .border(
-                        border = BorderStroke(1.dp, Color.Black),
-                        shape = RoundedCornerShape(12.dp)
-                    ))
+
+
+        ) {
+
+            customTextField(
+                value = amountInput,
+                onValueChange = {amountInput = it}
+            )
+
+
 
         }
         Text(
@@ -359,6 +355,76 @@ fun Login(state: SignInState,
                 .clip(shape = CircleShape)
                 .background(color = Color(0xffe67914).copy(alpha = 0.46f)))
     }
+}
+
+@Composable
+fun customTextField(
+    modifier: Modifier = Modifier,
+    value: String,
+    onValueChange: (String) -> Unit,
+) {
+
+
+    BasicTextField(
+        modifier = Modifier
+            .border(border = BorderStroke(1.dp, Color.Black),
+                shape = RoundedCornerShape(12.dp)),
+        value = value,
+        onValueChange = onValueChange,
+
+        textStyle = TextStyle(
+            fontSize = 18.sp
+        ),
+
+        decorationBox = { innerTextField ->
+
+            Box(
+
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = Color.White, shape = RoundedCornerShape(size = 30.dp))
+                    .padding(horizontal = 16.dp, vertical = 13.dp)
+                ,
+
+
+
+                ){
+
+                Row(
+                    modifier = Modifier,
+
+                    verticalAlignment = Alignment.CenterVertically
+
+                ) {
+                    Text(
+                        text = "+91",
+                        fontSize = 20.sp
+                    )
+
+
+                    innerTextField()
+
+                }
+
+                if (value.isEmpty()) {
+                    Text(
+                        text = "Mobile Number",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Normal,
+                        color = Color.LightGray,
+
+                        modifier = Modifier
+                            .padding(start = 40.dp)
+                    )
+                }
+
+            }
+
+        }
+
+
+    )
+
 }
 
 @Preview(widthDp = 360, heightDp = 800)
