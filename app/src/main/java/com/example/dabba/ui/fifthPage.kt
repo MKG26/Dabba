@@ -69,6 +69,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.example.dabba.R
+import com.example.dabba.presentation.sign_in.UserData
 import com.example.dabba.ui.theme.poppinsFamily
 import com.example.firstpage.ui.theme.thirdPage
 import java.sql.Types.NULL
@@ -84,7 +85,8 @@ data class BottomNavigationItem(
 
 
 @Composable
-fun fifthPage()
+fun fifthPage(
+)
 {
 
 
@@ -428,7 +430,7 @@ fun fifthPage()
                                 text = stringResource(id = R.string.cardRatingOne, 4.5),
                                 color = Color(0xFFFF7A00),
                                 fontFamily = poppinsFamily,
-                                fontSize = 25.sp,
+                                fontSize = 23.sp,
                                 fontWeight = FontWeight.Normal,
                                 modifier = Modifier
                                     .padding(
@@ -540,7 +542,7 @@ fun fifthPage()
                                 text = stringResource(id = R.string.cardRatingOne, 4.2),
                                 color = Color(0xFFFF7A00),
                                 fontFamily = poppinsFamily,
-                                fontSize = 25.sp,
+                                fontSize = 23.sp,
                                 fontWeight = FontWeight.Normal,
                                 modifier = Modifier
                                     .padding(

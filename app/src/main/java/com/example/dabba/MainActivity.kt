@@ -27,6 +27,7 @@ import com.example.dabba.presentation.sign_in.GoogleAuthUiClient
 import com.example.dabba.presentation.sign_in.SignInScreen
 import com.example.dabba.presentation.sign_in.SignInViewModel
 import com.example.dabba.ui.Login
+import com.example.dabba.ui.fifthPage
 import com.example.dabba.ui.theme.DabbaTheme
 import com.example.firstpage.ui.theme.firstPage
 import com.google.android.gms.auth.api.identity.Identity
@@ -52,13 +53,12 @@ class MainActivity : ComponentActivity() {
                 ) {
 
 
-
                     val navController = rememberNavController()
 
 
 
 
-                    NavHost(navController =  navController, startDestination = "sec"){
+                    NavHost(navController = navController, startDestination = "sec") {
 
                         composable(route = "sec") {
 
@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
 
                         }
 
-                        composable("sign_in"){
+                        composable("sign_in") {
                             val viewModel = viewModel<SignInViewModel>()
                             val state by viewModel.state.collectAsStateWithLifecycle()
 
@@ -90,13 +90,16 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
 
-                            LaunchedEffect(key1 = state.isSignInSuccessful){
-                                if(state.isSignInSuccessful){
+                            LaunchedEffect(key1 = state.isSignInSuccessful) {
+                                if (state.isSignInSuccessful) {
                                     Toast.makeText(
                                         applicationContext,
                                         "Sign in successful",
                                         Toast.LENGTH_LONG
                                     ).show()
+
+                                    navController.navigate("profile")
+                                    viewModel.resetState()
                                 }
                             }
 
@@ -116,6 +119,15 @@ class MainActivity : ComponentActivity() {
                             )
 
 
+                        }
+
+                        composable(
+                            route = "profile",
+                        ) {
+
+                            fifthPage(
+
+                            )
                         }
                     }
                 }
