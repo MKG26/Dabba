@@ -97,8 +97,8 @@ fun Login(state: SignInState,
 
     Box(
         modifier = modifier
-            .requiredWidth(width = 360.dp)
-            .requiredHeight(height = 800.dp)
+            .requiredWidth(width = 380.dp)
+            .requiredHeight(height = 900.dp)
             .background(color = Color.White)
             .fillMaxSize()
     ) {

@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -33,6 +34,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -112,13 +114,18 @@ class MainActivity : ComponentActivity() {
 
                     Scaffold(
                         bottomBar = {
-                             NavigationBar {
+
+                             NavigationBar(
+                             ) {
+
                                 items.forEachIndexed { index, item ->
                                      NavigationBarItem(
                                          selected = selectedItemIndex == index,
                                          onClick = {
                                                    selectedItemIndex = index
                                          },
+
+
 
                                          label = {
                                                  Text(text = item.title)
