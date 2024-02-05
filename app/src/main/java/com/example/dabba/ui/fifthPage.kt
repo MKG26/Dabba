@@ -668,7 +668,7 @@ fun customTextField1(
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun thirdPreview() {
     fifthPage()

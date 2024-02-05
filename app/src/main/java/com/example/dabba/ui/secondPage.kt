@@ -100,6 +100,7 @@ fun Login(state: SignInState,
             .requiredWidth(width = 360.dp)
             .requiredHeight(height = 800.dp)
             .background(color = Color.White)
+            .fillMaxSize()
     ) {
         Box(
             modifier = Modifier
