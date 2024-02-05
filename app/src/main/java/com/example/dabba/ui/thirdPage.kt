@@ -1,14 +1,21 @@
-package com.example.firstpage.ui.theme
+package com.example.dabba.ui
+
+import com.example.dabba.R
+import com.example.dabba.ui.theme.poppinsFamily
+
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -28,25 +35,27 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.dabba.R
-import com.example.dabba.ui.theme.poppinsFamily
-
+import coil.compose.AsyncImage
+import com.example.dabba.presentation.sign_in.UserData
 
 @Composable
 fun thirdPage(
 
 ) {
-    Column(
 
-    )
-    {
+    Column {
+
+
         var value by remember {
             mutableStateOf("")
         }
@@ -78,7 +87,7 @@ fun thirdPage(
         Spacer(Modifier.run { height(50.dp) })
 
         Text(
-            text = stringResource(id = R.string.otp1,6),
+            text = stringResource(id = R.string.otp1, 6),
             color = Color(0xFF000000),
             fontFamily = poppinsFamily,
             fontSize = 22.sp,
@@ -99,9 +108,12 @@ fun thirdPage(
 
         Spacer(modifier = Modifier.height(50.dp))
 
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(start = 15.dp)){
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(start = 15.dp)
+        ) {
             var num = 7
-            while (num>0) {
+            while (num > 0) {
                 Card(
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 5.dp
@@ -147,9 +159,14 @@ fun thirdPage(
 
         Spacer(modifier = Modifier.height(140.dp))
 
-        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.padding(10.dp)){
+        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.padding(10.dp)) {
             Card(
-                shape = RoundedCornerShape(topEnd = 300.dp, topStart = 300.dp, bottomEnd = 300.dp, bottomStart = 300.dp),
+                shape = RoundedCornerShape(
+                    topEnd = 300.dp,
+                    topStart = 300.dp,
+                    bottomEnd = 300.dp,
+                    bottomStart = 300.dp
+                ),
 //                            modifier = Modifier.padding(top = 10.dp),
 
                 colors = CardDefaults.cardColors(
@@ -183,7 +200,12 @@ fun thirdPage(
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFF77905)
                 ),
-                shape = RoundedCornerShape(topEnd = 10.dp, topStart = 10.dp, bottomEnd = 10.dp, bottomStart = 10.dp),
+                shape = RoundedCornerShape(
+                    topEnd = 10.dp,
+                    topStart = 10.dp,
+                    bottomEnd = 10.dp,
+                    bottomStart = 10.dp
+                ),
             ) {
                 Text(
                     text = stringResource(id = R.string.nextbtn),
@@ -192,7 +214,8 @@ fun thirdPage(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium,
                     modifier = Modifier
-                        .padding(bottom = 6.dp, top = 0.dp
+                        .padding(
+                            bottom = 6.dp, top = 0.dp
                         )
                 )
             }
@@ -202,7 +225,8 @@ fun thirdPage(
 }
 
 
-@Preview()
+
+@Preview(showBackground = true)
 @Composable
 private fun thirdPreview() {
     thirdPage()
