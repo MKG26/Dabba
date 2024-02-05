@@ -29,7 +29,6 @@ import com.example.dabba.presentation.sign_in.SignInViewModel
 import com.example.dabba.ui.Login
 import com.example.dabba.ui.profile
 import com.example.dabba.ui.theme.DabbaTheme
-import com.example.dabba.ui.thirdPage
 import com.example.firstpage.ui.theme.firstPage
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
@@ -54,13 +53,12 @@ class MainActivity : ComponentActivity() {
                 ) {
 
 
-
                     val navController = rememberNavController()
 
 
 
 
-                    NavHost(navController =  navController, startDestination = "sec"){
+                    NavHost(navController = navController, startDestination = "sec") {
 
                         composable(route = "sec") {
 
@@ -72,15 +70,9 @@ class MainActivity : ComponentActivity() {
 
                         }
 
-                        composable("sign_in"){
+                        composable("sign_in") {
                             val viewModel = viewModel<SignInViewModel>()
                             val state by viewModel.state.collectAsStateWithLifecycle()
-
-                            LaunchedEffect(key1 = Unit){
-                                 if(googleAuthUiClient.getSignedInUser() != null){
-                                     navController.navigate("profile")
-                                 }
-                            }
 
                             val launcher = rememberLauncherForActivityResult(
                                 contract = ActivityResultContracts.StartIntentSenderForResult(),
@@ -98,8 +90,8 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
 
-                            LaunchedEffect(key1 = state.isSignInSuccessful){
-                                if(state.isSignInSuccessful){
+                            LaunchedEffect(key1 = state.isSignInSuccessful) {
+                                if (state.isSignInSuccessful) {
                                     Toast.makeText(
                                         applicationContext,
                                         "Sign in successful",
@@ -131,7 +123,7 @@ class MainActivity : ComponentActivity() {
 
                         composable(
                             route = "profile",
-                            ){
+                        ) {
 
                             profile(
                                 userData = googleAuthUiClient.getSignedInUser(),
@@ -150,9 +142,6 @@ class MainActivity : ComponentActivity() {
 
                                 }
                             )
-                                
-
-
                         }
                     }
                 }

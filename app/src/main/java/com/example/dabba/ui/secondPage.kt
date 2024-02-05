@@ -114,7 +114,7 @@ fun Login(state: SignInState,
                 onClick = { },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xffff7a00)),
 
-               ){
+                ){
 
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,

@@ -32,7 +32,7 @@ fun profile(
         horizontalAlignment = Alignment.CenterHorizontally
 
 
-        )
+    )
     {
         if (userData?.profilePictureUrl != null) {
 
