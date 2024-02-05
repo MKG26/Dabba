@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Dabba</string>
+    <string name="appBig">D A B B A</string>
     <string name="web_client_id">166994467087-3iump73epfse08jrtgeafeegoo4pdlua.apps.googleusercontent.com</string>
     <string name="cardContent1">One stop destination</string>
     <string name="cardContent2">for your hunger cravings</string>
@@ -10,4 +11,12 @@
     <string name="otp2">phone number</string>
     <string name="resentCode">Resend Code</string>
     <string name="nextbtn">Next</string>
+    <string name="hiJohn">Hi, John Doe</string>
+    <string name="tiffinsNear">Tiffins near me</string>
+    <string name="sort">Sort</string>
+    <string name="rating">Rating %.1f+</string>
+    <string name="tiffinService1">Tiffin Service %d</string>
+    <string name="tiffinService2">Tiffin Service %d</string>
+    <string name="cardRatingOne">%.1f</string>
+    <string name="cardRatingTwo">%.1f</string>
 </resources>

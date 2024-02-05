@@ -208,6 +208,7 @@ fun Login(state: SignInState,
                 )
             }
         }
+
         Box(
             modifier = Modifier
                 .align(alignment = Alignment.TopStart)
@@ -231,6 +232,7 @@ fun Login(state: SignInState,
                         y = 0.dp
                     )
                     .requiredWidth(width = 16.dp))
+
             Divider(
                 color = Color.Black.copy(alpha = 0.22f),
                 modifier = Modifier
@@ -240,6 +242,7 @@ fun Login(state: SignInState,
                         y = 12.dp
                     )
                     .requiredWidth(width = 154.dp))
+
             Divider(
                 color = Color.Black.copy(alpha = 0.22f),
                 modifier = Modifier
@@ -250,6 +253,8 @@ fun Login(state: SignInState,
                     )
                     .requiredWidth(width = 155.dp))
         }
+
+
         Box(
             modifier = Modifier
                 .align(alignment = Alignment.TopStart)
@@ -270,6 +275,7 @@ fun Login(state: SignInState,
                         border = BorderStroke(1.dp, Color.Black),
                         shape = RoundedCornerShape(10.dp)
                     ))
+
             Text(
                 text = "Continue",
                 color = Color(0xffff7a00),
