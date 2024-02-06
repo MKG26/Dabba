@@ -61,6 +61,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    implementation("org.jetbrains:annotations:15.0")
     testImplementation("junit:junit:4.13.2")
 
     implementation ("com.google.firebase:firebase-auth-ktx:22.3.1")
