@@ -1,6 +1,7 @@
 package com.example.dabba.ui
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.ui.Alignment
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -38,6 +39,8 @@ import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material.icons.sharp.Star
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -86,8 +89,11 @@ data class BottomNavigationItem(
 
 @Composable
 fun fifthPage(
+    onClick: () -> Unit,
+    onPclick: () -> Unit
 )
 {
+
 
     var selectedItemIndex by rememberSaveable {
         mutableStateOf(0)
@@ -321,7 +327,7 @@ fun fifthPage(
 
 
             // Tiffin SERVICES CARDS
-            Card(
+            Button(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp)
@@ -329,10 +335,11 @@ fun fifthPage(
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp, bottomEnd = 20.dp, bottomStart = 20.dp),
 //                            modifier = Modifier.padding(top = 10.dp),
 
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFE3EAF2), //Card background color
-                ),
+                onClick = onClick,
+
+                colors = ButtonDefaults.buttonColors( Color(0xFFE1E9EC))
             ) {
+
 
                 Column() {
                     Row(
@@ -433,18 +440,18 @@ fun fifthPage(
 
 
             // Tiffin SERVICES CARD - 2
-            Card(
+            Button(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp)
-                    .padding(end = 10.dp, top = 10.dp),
+                    .padding(top = 10.dp,end = 10.dp),
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp, bottomEnd = 20.dp, bottomStart = 20.dp),
 //                            modifier = Modifier.padding(top = 10.dp),
 
-                colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFE3EAF2), //Card background color
-                ),
-            ) {
+                onClick = onClick,
+
+                colors = ButtonDefaults.buttonColors( Color(0xFFE1E9EC))
+            )  {
 
                 Column() {
                     Row(
@@ -542,6 +549,100 @@ fun fifthPage(
                 }
 
             }
+
+            Button(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(50.dp)
+                    .padding(top = 10.dp,end = 10.dp),
+                shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp, bottomEnd = 20.dp, bottomStart = 20.dp),
+//                            modifier = Modifier.padding(top = 10.dp),
+
+                onClick = onPclick,
+
+                colors = ButtonDefaults.buttonColors( Color(0xFFE1E9EC))
+            )  {
+
+                Column() {
+                    Row(
+                        horizontalArrangement = Arrangement.Start,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.tiffinService2,2, 1),
+                            color = Color(0xFF000000),
+                            fontFamily = poppinsFamily,
+                            fontSize = 23.sp,
+                            fontWeight = FontWeight.Normal,
+                            modifier = Modifier
+                                .padding(
+                                    top = 15.dp, bottom = 20.dp, start = 10.dp
+                                )
+                        )
+
+                        Spacer(modifier = Modifier.width(130.dp))
+
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
+                            modifier = Modifier.padding(top = 6.dp)
+                        )
+                        {
+
+
+
+
+
+                        }
+
+
+                    }
+
+                    Spacer(modifier = Modifier.height(35.dp))
+//                    Spacer(modifier = Modifier.width(230.dp))
+
+                    // Rating Card 4.0
+                    Card(
+                        modifier = Modifier
+                            .height(40.dp)
+                            .width(120.dp)
+                            .padding(end = 20.dp)
+                            .align(Alignment.End),
+                        shape = RoundedCornerShape(bottomStart = 20.dp, bottomEnd = 20.dp, topEnd = 20.dp, topStart = 20.dp),
+//                            modifier = Modifier.padding(top = 10.dp),
+
+                        colors = CardDefaults.cardColors(
+                            containerColor = Color(0xFF000000),)
+                    ){
+                        Row(horizontalArrangement = Arrangement.Center){
+                            Text(
+                                text = stringResource(id = R.string.cardRatingOne, 4.2),
+                                color = Color(0xFFFF7A00),
+                                fontFamily = poppinsFamily,
+                                fontSize = 23.sp,
+                                fontWeight = FontWeight.Normal,
+                                modifier = Modifier
+                                    .padding(
+                                        top = 4.dp, bottom = 4.dp, start = 15.dp
+                                    )
+                            )
+                            IconButton(onClick = {}) {
+                                Icon(
+                                    imageVector = Icons.Outlined.Star,
+                                    contentDescription = null,
+                                    tint = Color(0xFFFF7A00),
+                                    modifier = Modifier
+                                        .width(35.dp)
+                                        .height(25.dp)
+                                        .padding(end = 10.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
 
             Spacer(modifier = Modifier.height(20.dp))
 
@@ -648,6 +749,6 @@ fun customTextField1(
 @Preview(showBackground = true)
 @Composable
 private fun thirdPreview() {
-    fifthPage()
+    fifthPage(onClick = {} , onPclick = {})
 }
 

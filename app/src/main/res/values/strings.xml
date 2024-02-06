@@ -19,4 +19,17 @@
     <string name="tiffinService2">Tiffin Service %d</string>
     <string name="cardRatingOne">%.1f</string>
     <string name="cardRatingTwo">%.1f</string>
+
+
+    <string name="account">Account</string>
+    <string name="card1">Privacy and Settings</string>
+    <string name="card2">Order History</string>
+    <string name="card3">Choose Language</string>
+    <string name="card4">Subscriptions</string>
+    <string name="card5">Help and Support</string>
+    <string name="card6">Notifications Settings</string>
+    <string name="card7">About US</string>
+    <string name="accName">Mohit</string>
+    <string name="notification">Notifications</string>
+    <string name="editProfile">Edit profile</string>
 </resources>

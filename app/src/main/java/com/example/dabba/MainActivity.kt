@@ -54,8 +54,10 @@ import com.example.dabba.presentation.sign_in.GoogleAuthUiClient
 import com.example.dabba.presentation.sign_in.SignInScreen
 import com.example.dabba.presentation.sign_in.SignInViewModel
 import com.example.dabba.ui.Login
+import com.example.dabba.ui.SixthPage
 import com.example.dabba.ui.fifthPage
 import com.example.dabba.ui.theme.DabbaTheme
+import com.example.dabba.ui.tiffinService
 import com.example.firstpage.ui.theme.firstPage
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
@@ -90,7 +92,7 @@ class MainActivity : ComponentActivity() {
                         unselectedIcon = Icons.Outlined.Home,
                         hasNews = false,
 
-                    ),
+                        ),
                     BottomNavigationItem(
                         title = "Cart",
                         selectedIcon = Icons.Filled.ShoppingCart,
@@ -98,7 +100,7 @@ class MainActivity : ComponentActivity() {
                         hasNews = false,
                         badgeCount = 2
 
-                        ),
+                    ),
                     BottomNavigationItem(
                         title = "Favourite",
                         selectedIcon = Icons.Filled.Favorite,
@@ -111,6 +113,8 @@ class MainActivity : ComponentActivity() {
                         selectedIcon = Icons.Filled.Person,
                         unselectedIcon = Icons.Outlined.Person,
                         hasNews = true,
+
+
 
                         ),
                 )
@@ -129,48 +133,48 @@ class MainActivity : ComponentActivity() {
                     Scaffold(
                         bottomBar = {
 
-                             NavigationBar(
-                             ) {
+                            NavigationBar(
+                            ) {
 
                                 items.forEachIndexed { index, item ->
-                                     NavigationBarItem(
-                                         selected = selectedItemIndex == index,
-                                         onClick = {
-                                                   selectedItemIndex = index
-                                         },
+                                    NavigationBarItem(
+                                        selected = selectedItemIndex == index,
+                                        onClick = {
+                                            selectedItemIndex = index
+                                        },
 
 
 
-                                         label = {
-                                                 Text(text = item.title)
-                                         },
-                                         icon = {
-                                             BadgedBox(
-                                                 badge = {
-                                                     if(item.badgeCount != null){
-                                                          Badge {
-                                                              Text(text = item.badgeCount.toString())
-                                                          }
-                                                     }else if ( item.hasNews){
-                                                         Badge()
-                                                     }
-                                                 }
-                                             ) {
-                                                 Icon(
-                                                     imageVector = if(index == selectedItemIndex){
-                                                                                                 item.selectedIcon
-                                                                                                 }else{
-                                                                                                      item.unselectedIcon
-                                                                                                      },
-                                                     contentDescription = item.title
-                                                 )
-                                             }
-                                         })
+                                        label = {
+                                            Text(text = item.title)
+                                        },
+                                        icon = {
+                                            BadgedBox(
+                                                badge = {
+                                                    if(item.badgeCount != null){
+                                                        Badge {
+                                                            Text(text = item.badgeCount.toString())
+                                                        }
+                                                    }else if ( item.hasNews){
+                                                        Badge()
+                                                    }
+                                                }
+                                            ) {
+                                                Icon(
+                                                    imageVector = if(index == selectedItemIndex){
+                                                        item.selectedIcon
+                                                    }else{
+                                                        item.unselectedIcon
+                                                    },
+                                                    contentDescription = item.title
+                                                )
+                                            }
+                                        })
                                 }
-                             }
+                            }
                         }
                     ) {
-                            it
+                        it
                     }
 
 
@@ -249,8 +253,26 @@ class MainActivity : ComponentActivity() {
                         ) {
 
                             fifthPage(
+                                    onClick = {
+                                        navController.navigate("sixthPage")
+                                    },
 
+                                onPclick = {
+                                    navController.navigate("pppp")
+                                }
                             )
+                        }
+
+                        composable(
+                            route = "sixthPage",
+                        ){
+                            tiffinService()
+                        }
+
+                        composable(
+                            route = "pppp"
+                        ){
+                            SixthPage()
                         }
                     }
                 }
