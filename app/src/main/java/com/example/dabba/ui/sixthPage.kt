@@ -154,7 +154,7 @@ fun SixthPage(){
 //                        Spacer(modifier = Modifier.height(20.dp))
 
                         Text(
-                            text = stringResource(id = R.string.editPrfile),
+                            text = stringResource(id = R.string.editProfile),
                             color = Color(0xFF000000),
                             fontFamily = poppinsFamily,
                             fontSize = 19.sp,

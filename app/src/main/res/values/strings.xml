@@ -28,5 +28,13 @@
     <string name="card6">Notifications Settings</string>
     <string name="card7">About US</string>
     <string name="accName">John Doe</string>
-    <string name="editPrfile">Edit Profile</string>
+    <string name="notification">Notifications</string>
+    <string name="editProfile">Edit profile</string>
+    <string name="txtWay1">Tiffin is on its way!</string>
+    <string name="txtWay2">Track your daily tiffin here</string>
+    <string name="tiffinDel1">Tiffin Delivered</string>
+    <string name="tiffinDel2">Your tiffin was delivered successfully</string>
+    <string name="subs1">Annual Subscription</string>
+    <string name="subs2">Your annual subscription will end on</string>
+    <string name="subs3">%dth December %d</string>
 </resources>
