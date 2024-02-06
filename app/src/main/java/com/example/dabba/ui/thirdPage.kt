@@ -202,7 +202,7 @@ fun thirdPage(
 }
 
 
-@Preview()
+@Preview(showBackground = true)
 @Composable
 private fun thirdPreview() {
     thirdPage()
